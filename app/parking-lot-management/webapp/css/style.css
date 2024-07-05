@@ -1,0 +1,16 @@
+/* Enter your custom styles here */
+.sapUiSmallMargin{
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    border-radius: 1rem;
+}
+.parkinglotText{
+    color: blue;
+    margin-bottom: 10%;
+    font-size: larger;
+    font-weight: bold;
+}
+.sapUiContentPadding{
+    
+}

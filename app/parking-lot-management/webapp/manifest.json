@@ -1,0 +1,162 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "com.app.parkinglotmanagement",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.14.0",
+      "toolsId": "6bbf5f64-9556-4b8c-a0c6-dd896c37dd58"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/parking-lot/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      },
+      "mainServiceV2": {
+        "uri": "/v2/odata/v4/parking-lot/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.125.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {},
+        "sap.viz": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.app.parkinglotmanagement.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "com.app.parkinglotmanagement.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteEntrance",
+          "pattern": ":?query:",
+          "target": [
+            "TargetEntrance"
+          ]
+        },
+        {
+          "name": "Routslotdetails",
+          "pattern": "slotassign/{slotassign}",
+          "target": [
+            "Targetslotdetails"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetEntrance": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Entrance",
+          "viewName": "Entrance"
+        },
+        "Targetslotdetails": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "slotdetails",
+          "viewName": "slotdetails"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.app.parkinglotmanagement.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    },
+    "config": {
+			"sample": {
+				"stretch": true,
+				"files": [
+					"Form.view.xml",
+					"Form.controller.js",
+					"manifest.json"
+				]
+			}
+		}
+
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "parking-lot"
+  }
+}

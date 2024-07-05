@@ -1,0 +1,91 @@
+
+<mvc:View
+    xmlns:uxap="sap.uxap"
+    controllerName="com.app.parkinglotmanagement.controller.slotdetails"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <uxap:ObjectPageLayout
+        id="idslotsDetailsObject"
+        upperCaseAnchorBar="true"
+        
+    >
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle id="idObjectPageDynamicTitle">
+                <uxap:expandedHeading>
+                    <Title
+                        id="idBooksDetailsTitle"
+                        text="Parking-lot management"
+                    />
+                </uxap:expandedHeading>
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+        <uxap:sections>
+            <uxap:ObjectPageSection
+                titleUppercase="true"
+                id="generalInfo"
+                title="Parking Slot Details"
+            >
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection id="idGeneralInfoSubSection">
+                        <uxap:blocks>
+                            <form:SimpleForm
+                                id="idBooksDetailsForm"
+                                editable="false"
+                                layout="ColumnLayout"
+                                columnsM="2"
+                                columnsL="3"
+                                columnsXL="4"
+                            >
+                                <Label
+                                    id="iddriverNameLabel"
+                                    text="Driver Name"
+                                />
+                                <Text
+                                    id="iddriverNameText"
+                                    text="{parkinglotassign/driverName}"
+                                />
+                                <Label
+                                    id="idPhoneNoLabel"
+                                    text="Phone no"
+                                />
+                                <Text
+                                    id="idPhoneNoText"
+                                    text="{parkinglotassign/phoneNo}"
+                                />
+                                <Label
+                                    id="idVehicleNoLabel"
+                                    text="Vehicle No"
+                                />
+                                <Text
+                                    id="idVehicleNoText"
+                                    text="{parkinglotassign/vehicleNo}"
+                                />
+                                <Label
+                                    id="idTruckTypeLabel"
+                                    text="Truck Type"
+                                />
+                                <Text
+                                    id="idTruckTypeText"
+                                    text="{parkinglotassign/truckType}"
+                                />
+                                <Label
+                                    id="idSlotNoLabel"
+                                    text="Parking-lot no"
+                                />
+                                <Text
+                                    id="idSlotNoText"
+                                    text="{parkinglotassign/parkingslot/slotno}"
+                                />
+                            </form:SimpleForm>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+         </uxap:sections>
+    </uxap:ObjectPageLayout>
+</mvc:View>
