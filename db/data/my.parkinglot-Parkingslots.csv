@@ -1,6 +1,8 @@
-ID,slotno,type,status,parkinglotassign_ID
-2f152964-3ab7-11ef-86e7-325096b39f47,S001,Inbound,Available,550e8400-e29b-41d4-a716-446655440000
-2f152bf8-3ab7-11ef-b2c9-325096b39f47,S002,Outbound,Occupied,550e8400-e29b-41d4-a716-446655440001
-2f152c84-3ab7-11ef-9106-325096b39f47,S003,Inbound,Available,
-2f152cde-3ab7-11ef-824e-325096b39f47,S004,Outbound,Available,
-2f152e78-3ab7-11ef-b12e-325096b39f47,S005,Inbound,Available,
+slotno,type,Available
+PS001,Inward,true
+PS002,Inward,true
+PS003,Inward,true
+PS004,Outward,true
+PS005,Outward,true
+PS006,Outward,true
+PS007,Outward,true

@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="editDialog" title="Edit Slot">
+        <!-- <content>
+            <VBox class="sapUiContentPadding">
+                <Label text="Vehicle Number" />
+                <Input value="{newSlotModel>/vehicleNo}" editable="false" />
+                
+                <Label text="Driver Name" />
+                <Input value="{newSlotModel>/driverName}" />
+                
+                <Label text="Phone Number" />
+                <Input value="{newSlotModel>/phoneNo}" />
+                
+            
+            </VBox>
+        </content> -->
+        <beginButton>
+            <Button text="Update" press="onUpdate" />
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" press="onCancelUpdate" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

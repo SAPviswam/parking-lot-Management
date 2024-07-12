@@ -1,3 +1,1 @@
-ID,parkingslot_ID,parkinglotassign_ID,parkinglotunassign_ID,event
-550e8400-e29b-41d4-a716-446655440004,2f152bf8-3ab7-11ef-b2c9-325096b39f47,550e8400-e29b-41d4-a716-446655440001,,Truck DEF456 assigned to slot S002
-550e8400-e29b-41d4-a716-446655440005,2f152964-3ab7-11ef-86e7-325096b39f47,550e8400-e29b-41d4-a716-446655440000,550e8400-e29b-41d4-a716-446655440002,Truck ABC123 unassigned from slot S001
+ID,vehicalNo,driverName,phone,vehicalType,assignedDate,unassignedDate,parkingslots_slotno,parkinglotassigndetails_vehicleNo
