@@ -1,4 +1,5 @@
-<mvc:View controllerName="com.app.parkinglotmanagement.controller.Entrance"
+<mvc:View
+    controllerName="com.app.parkinglotmanagement.controller.Entrance"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:tnt="sap.tnt"
@@ -10,9 +11,10 @@
     xmlns:viz.data="sap.viz.ui5.data"
     xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
     xmlns:viz="sap.viz.ui5.controls"
-    xmlns:chart="sap.suite.ui.commons"
+    xmlns:suite="sap.suite.ui.commons"
     height="100%"
-    displayBlock="true">
+    displayBlock="true"
+>
     <tnt:ToolPage id="toolPage">
         <tnt:header>
             <tnt:ToolHeader id="toolHeader">
@@ -29,12 +31,15 @@
                         />
                     </layoutData>
                 </Button>
-                <Title id="idTitletext" text="Parking-lot Management" ></Title>
+                <Title
+                    id="idTitletext"
+                    text="Parking-lot Management"
+                />
                 <ToolbarSpacer
                     id="toolbarSpacer1"
                     width="20px"
                 />
-                
+
                 <tnt:ToolHeaderUtilitySeparator
                     id="toolHeaderUtilitySeparator"
                 />
@@ -47,10 +52,10 @@
                         />
                     </layoutData>
                 </ToolbarSpacer>
-                <Button 
+                <Button
                     id="idNotifications"
                     icon="sap-icon://bell-2"
-                ></Button>
+                />
                 <Image
                     id="sapLogo"
                     height="1.5rem"
@@ -87,22 +92,22 @@
                     />
 
                     <tnt:NavigationListItem
-                    id="navigationHistory"
-                    icon="sap-icon://history"
-                    key="History"
-                    text="History"
+                        id="navigationHistory"
+                        icon="sap-icon://history"
+                        key="History"
+                        text="History"
                     />
                     <tnt:NavigationListItem
-                    id="navigationDataVisualization"
-                    icon="sap-icon://pie-chart"
-                    key="DataVisualization"
-                    text="Data Visualization"
+                        id="navigationDataVisualization"
+                        icon="sap-icon://pie-chart"
+                        key="DataVisualization"
+                        text="Data Visualization"
                     />
                     <tnt:NavigationListItem
-                    id="navigationDataReservations"
-                    icon="sap-icon://select-appointments"
-                    key="Reservations"
-                    text="Reservations"
+                        id="navigationDataReservations"
+                        icon="sap-icon://select-appointments"
+                        key="Reservations"
+                        text="Reservations"
                     />
                 </tnt:NavigationList>
             </tnt:SideNavigation>
@@ -120,45 +125,108 @@
                         height="100%"
                         class="sapUiContentPadding"
                     >
-                        <Table id="allSlotsTable" alternateRowColors="true" items="{/Parkingslots}" selectionChange="onSelectSlot">
-                <headerToolbar>
-                    <Toolbar id="allSlotstableToolbar">
-                        <Title id="allSlotstableTitle" text="All slots" titleStyle="H3" />
-                        <ToolbarSpacer id="toolbarspacer1"></ToolbarSpacer>
-                        <SearchField id="SearchField1" width="12rem" placeholder="Search" search="onSearch" />
-                        <Button id="_IDGenButton1" text="Add New Slot" type="Accept" press="onAddButton" />
-                    </Toolbar>
-                </headerToolbar>
-                <columns>
-                    <Column id="allSlotscolumn1">
-                        <Text id="allSlotscolumn1Text" text="Slot no" />
-                    </Column>
-                    <Column id="allSlotscolumn2">
+                        <Table
+                            id="allSlotsTable"
+                            alternateRowColors="true"
+                            items="{/Parkingslots}"
+                            selectionChange="onSelectSlot"
+                        >
+                            <headerToolbar>
+                                <Toolbar id="allSlotstableToolbar">
+                                    <Title
+                                        id="allSlotstableTitle"
+                                        text="All slots"
+                                        titleStyle="H3"
+                                    />
+                                    <ToolbarSpacer id="toolbarspacer1" />
+                                    <SearchField
+                                        id="SearchField1"
+                                        width="12rem"
+                                        placeholder="Search"
+                                        search="onSearch"
+                                    />
+                                    <Button
+                                        id="_IDGenButton1"
+                                        text="Add New Slot"
+                                        type="Accept"
+                                        press="onAddButton"
+                                    />
+                                </Toolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column id="allSlotscolumn1">
+                                    <Text
+                                        id="allSlotscolumn1Text"
+                                        text="Slot no"
+                                    />
+                                </Column>
+                                <!-- <Column id="allSlotscolumn2">
                         <Text id="allSlotscolumn2Text" text="Type" />
-                    </Column>
-                    <Column id="allSlotscolumn3">
-                        <Text id="allSlotscolumn3Text" text="Availability" />
-                    </Column>
-                </columns>
-                <items>
-                    <ColumnListItem id="allSlotscolumnListItem" type="Navigation">
-                        <cells>
-                            <Text id="alllotscellText1" text="{slotno}" />
-                            <Text id="allSlotscellText2" text="{type}" />
-                            <Text id="allSlotscellText3" text="{Available}" />
-                        </cells>
-                    </ColumnListItem>
-                </items>
-            </Table>
+                    </Column> -->
+                                <Column id="allSlotscolumn3">
+                                    <Text
+                                        id="allSlotscolumn3Text"
+                                        text="Availability"
+                                    />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem
+                                    id="allSlotscolumnListItem"
+                                    type="Navigation"
+                                >
+                                    <cells>
+                                        <Text
+                                            id="alllotscellText1"
+                                            text="{slotno}"
+                                        />
+                                        <Text
+                                            id="allSlotscellText3"
+                                            text="{Available}"
+                                        />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
                     </ScrollContainer>
-                    
+
+                    <Dialog
+                        id="AddDialog"
+                        title="Parking-lot Reservation"
+                        class="sapUiContentPadding"
+                        contentHeight="20%"
+                    >
+                        <content>
+                            <VBox id="_IDAddVBox1">
+                                <Label
+                                    id="inputAddSlotnoLabel"
+                                    text="Slot no"
+                                />
+                                <Input id="inputAddSlotno" />
+                            </VBox>
+                        </content>
+                        <buttons>
+                            <Button
+                                id="AddBtn"
+                                text="Add"
+                                press="onSaveAdd"
+                                type="Accept"
+                            />
+                            <Button
+                                id="AddcancelBtn"
+                                text="Cancel"
+                                press="onCancelAdd"
+                                type="Emphasized"
+                            />
+                        </buttons>
+                    </Dialog>
+
                     <ScrollContainer
                         id="Page2"
                         vertical="true"
                         height="100%"
                         class="sapUiContentPadding"
                     >
-
                         <Table
                             id="assignedSlotsTable"
                             growing="true"
@@ -174,20 +242,50 @@
                                         text="Assigned Slots"
                                         titleStyle="H3"
                                     />
-                                    <ToolbarSpacer id="toolbarspacer"></ToolbarSpacer>
-                                    <SearchField id="SearchField2" width="12rem" placeholder="Search" search="onSearch" />
-                                    <Button id="_IDGenButton3" class="black-background"   icon="sap-icon://edit" press="onEdit"/>
-                                    <Button id="_IDGenButton4" class="black-background" text="Un-assigned" type="Emphasized"  press="onUnAssign"/>
+                                    <ToolbarSpacer id="toolbarspacer" />
+                                    <SearchField
+                                        id="SearchField2"
+                                        width="12rem"
+                                        placeholder="Search"
+                                        search="onSearch"
+                                    />
+                                    <Button
+                                        id="_IDGenButton3"
+                                        class="black-background"
+                                        icon="sap-icon://edit"
+                                        press="onEdit"
+                                    />
+                                    <Button
+                                        id="_IDGenButton4"
+                                        class="black-background"
+                                        text="Un-assigned"
+                                        type="Emphasized"
+                                        press="onUnAssign"
+                                    />
                                     <!-- Dropdown Menu Button -->
-                                    <MenuButton id="idMenubtnContainer" text="Download" type="Emphasized" icon="sap-icon://download">
+                                    <MenuButton
+                                        id="idMenubtnContainer"
+                                        text="Download"
+                                        type="Emphasized"
+                                        icon="sap-icon://download"
+                                    >
                                         <menu>
                                             <Menu id="idMenuBtnMenu">
-                                                <MenuItem id="idMenuItem1" text="Excel" icon="sap-icon://excel-attachment" press="onExport" />
-                                                <MenuItem id="idMenuItem2" text="Print"  icon="sap-icon://pdf-attachment" press="onPrint" />
+                                                <MenuItem
+                                                    id="idMenuItem1"
+                                                    text="Excel"
+                                                    icon="sap-icon://excel-attachment"
+                                                    press="onExport"
+                                                />
+                                                <MenuItem
+                                                    id="idMenuItem2"
+                                                    text="Print"
+                                                    icon="sap-icon://pdf-attachment"
+                                                    press="onPrint"
+                                                />
                                             </Menu>
                                         </menu>
                                     </MenuButton>
-
                                 </Toolbar>
                             </headerToolbar>
 
@@ -222,115 +320,129 @@
                                         text="Assign Time"
                                     />
                                 </Column>
-                                <Column id="assignedSlotscolumn6" >
+                                <Column id="assignedSlotscolumn6">
                                     <Text
                                         id="assignedSlotscolumn6Text"
                                         text="Slot no"
                                     />
                                 </Column>
-                                <Column id="assignedSlotscolumn7" visible="false">
-                                    <Text 
-                                        id="assignedSlotscolumn7Text" 
-                                        text="Actions" 
+                                <Column
+                                    id="assignedSlotscolumn7"
+                                    visible="false"
+                                >
+                                    <Text
+                                        id="assignedSlotscolumn7Text"
+                                        text="Actions"
                                     />
                                 </Column>
                             </columns>
                             <items>
-                                <ColumnListItem id="assignedSlotscolumnListItem">
+                                <ColumnListItem
+                                    id="assignedSlotscolumnListItem"
+                                >
                                     <cells>
-                                    <VBox id="_IDassignedSlots1">
-                                        <Text
-                                            id="assignedSlotscellText1"
-                                            text="{vehicleNo}"
-                                        />
-                                        <Input 
-                                            id="_IDassignedSlotsInputvehicleNo"
-                                            visible="false"
-                                            value="{vehicleNo}"
-                                        >
-                                        </Input>
-                                    </VBox>
-                                    <VBox id="_IDassignedSlots2">
-                                        <Text
-                                            id="assignedSlotscellText2"
-                                            text="{driverName}"
-                                            
-                                        />
-                                        <Input 
-                                            id="_IDassignedSlotsInputdriverName"
-                                            visible="false"
-                                            value="{driverName}"
-                                        >
-                                        </Input>
-                                    </VBox>
-                                    <VBox id="_IDassignedSlots3">
-                                        <Text
-                                            id="assignedSlotscellText3"
-                                            text="{phoneNo}"
-                                        />
-                                        <Input 
-                                            id="_IDassignedSlotsInputphoneNo"
-                                            visible="false"
-                                            value="{phoneNo}"
-                                        >
-                                        </Input>
-                                    </VBox>
-                                    <VBox id="_IDassignedSlots4">
-                                        <Text
-                                            id="assignedSlotscellText4"
-                                            text="{truckType}"
-                                        />
-                                        <Select
-                                            id="_IDEditInput4"
-                                            visible="false"
-                                            selectedKey="{parkingModel>/truckType}"
-                                        >
-                                            <items>
-                                                <core:Item id="_IDEditItem1" text="Inward" key="Inward"/>
-                                                <core:Item id="_IDEditItem2" text="Outward" key="Outward"/>
-                                            </items>
-                                        </Select>
-                                    </VBox>
-                                    <VBox id="_IDassignedSlots5">
-                                        <Text
-                                            id="assignedSlotscellText5"
-                                            text="{assigntime}"
-                                        />
-                                        <Input 
-                                            id="_IDassignedSlotsInputassigntime"
-                                            visible="false"
-                                            value="{assigntime}"
-                                            editable="false"
-                                        >
-                                        </Input>
-                                    </VBox>
-                                    <VBox id="_IDassignedSlots6">
-                                        <Text
-                                            id="assignedSlotscellText6"
-                                            text="{parkingslot_slotno}"
-                                        />
-                                        <Select
-                                            id="_IDassignedSlotsInputparkingLotSelect"
-                                            selectedKey="{parkingslot_slotno}"
-                                            items="{path: '/Parkingslots', filters: [{path: 'Available', operator: 'EQ', value1: true }], templateShareable:true}"
-                                            visible="false"
-                                        >
-                                        <core:Item
-                                            id="_IDEditItem4"
-                                            key="{slotno}"
-                                            text="{slotno}"
-                                        />
-                                        </Select>
-                                    </VBox>
-                                    <VBox id="_IDSaveEdit">
-                                        <Button id="_IDSaveEditBtn" text="Save" type="Emphasized" visible="false" press="onSaveEdit" />
-                                    </VBox>
+                                        <VBox id="_IDassignedSlots1">
+                                            <Text
+                                                id="assignedSlotscellText1"
+                                                text="{vehicleNo}"
+                                            />
+                                            <Input
+                                                id="_IDassignedSlotsInputvehicleNo"
+                                                visible="false"
+                                                value="{vehicleNo}"
+                                            />
+                                        </VBox>
+                                        <VBox id="_IDassignedSlots2">
+                                            <Text
+                                                id="assignedSlotscellText2"
+                                                text="{driverName}"
+                                            />
+                                            <Input
+                                                id="_IDassignedSlotsInputdriverName"
+                                                visible="false"
+                                                value="{driverName}"
+                                            />
+                                        </VBox>
+                                        <VBox id="_IDassignedSlots3">
+                                            <Text
+                                                id="assignedSlotscellText3"
+                                                text="{phoneNo}"
+                                            />
+                                            <Input
+                                                id="_IDassignedSlotsInputphoneNo"
+                                                visible="false"
+                                                value="{phoneNo}"
+                                            />
+                                        </VBox>
+                                        <VBox id="_IDassignedSlots4">
+                                            <Text
+                                                id="assignedSlotscellText4"
+                                                text="{truckType}"
+                                            />
+                                            <Select
+                                                id="_IDEditInput4"
+                                                visible="false"
+                                                selectedKey="{truckType}"
+                                            >
+                                                <items>
+                                                    <core:Item
+                                                        id="_IDEditItem1"
+                                                        text="Inward"
+                                                        key="Inward"
+                                                    />
+                                                    <core:Item
+                                                        id="_IDEditItem2"
+                                                        text="Outward"
+                                                        key="Outward"
+                                                    />
+                                                </items>
+                                            </Select>
+                                        </VBox>
+                                        <VBox id="_IDassignedSlots5">
+                                            <Text
+                                                id="assignedSlotscellText5"
+                                                text="{assigntime}"
+                                            />
+                                            <Input
+                                                id="_IDassignedSlotsInputassigntime"
+                                                visible="false"
+                                                value="{assigntime}"
+                                                editable="false"
+                                            />
+                                        </VBox>
+                                        <VBox id="_IDassignedSlots6">
+                                            <Text
+                                                id="assignedSlotscellText6"
+                                                text="{parkingslot/slotno}"
+                                            />
+                                            <Select
+                                                id="_IDassignedSlotsInputparkingLotSelect"
+                                                selectedKey=""
+                                                items="{path: '/Parkingslots', filters: [{path: 'Available', operator: 'EQ', value1: true }], templateShareable:true}"
+                                                visible="false"
+                                            >
+                                                <core:Item
+                                                    id="_IDEditItem4"
+                                                    key="{slotno}"
+                                                    text="{slotno}"
+                                                />
+                                            </Select>
+                                        </VBox>
+                                        <VBox id="_IDSaveEdit">
+                                            <Button
+                                                id="_IDSaveEditBtn"
+                                                text="Save"
+                                                type="Emphasized"
+                                                visible="false"
+                                                press="onSaveEdit"
+                                            />
+                                        </VBox>
                                     </cells>
                                 </ColumnListItem>
                             </items>
                         </Table>
                     </ScrollContainer>
-             
+
                     <ScrollContainer
                         id="Page3"
                         horizontal="true"
@@ -338,42 +450,118 @@
                         height="100%"
                         class="sapUiContentPadding"
                     >
-                        <VBox id="reservationForm" alignItems="End">
-                            <Button id="_IDGenButtonReserve" text="Reserve Slot" type="Emphasized" press="onReserve" />
+                        <VBox
+                            id="reservationForm"
+                            alignItems="End"
+                        >
+                            <Button
+                                id="_IDGenButtonReserve"
+                                text="Reserve Slot"
+                                type="Emphasized"
+                                press="onReserve"
+                            />
                         </VBox>
 
-                        <VBox id="idAssignslots" class="sapUiSmallMargin" width="35%">
-                            <Label id="_IDHeadLabel" text="Parking-lot Allocation" class="sapUiSmallMarginTop"/>
-                            <FlexBox id="_IDField1" justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginTop">
-                                <Label id="_IDVehicleNoLabel" text="Vehicle No:"/>
-                                <Input id="_IDGenInput1" value="{parkingModel>/vehicleNo}" placeholder="Enter Vehicle No"/>
+                        <VBox
+                            id="idAssignslots"
+                            class="sapUiSmallMargin"
+                            width="35%"
+                        >
+                            <Label
+                                id="_IDHeadLabel"
+                                text="Parking-lot Allocation"
+                                class="sapUiSmallMarginTop"
+                            />
+                            <FlexBox
+                                id="_IDField1"
+                                justifyContent="SpaceBetween"
+                                alignItems="Center"
+                                class="sapUiSmallMarginTop"
+                            >
+                                <Label
+                                    id="_IDVehicleNoLabel"
+                                    text="Vehicle No:"
+                                />
+                                <Input
+                                    id="_IDGenInput1"
+                                    value=""
+                                    placeholder="Enter Vehicle No"
+                                />
                             </FlexBox>
 
-                            <FlexBox id="_IDField2" justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginTop">
-                                <Label id="_IDDriverNameLabel" text="Driver Name:"/>
-                                <Input id="_IDGenInput2" value="{parkingModel>/driverName}" placeholder="Enter Driver Name"/>
-                            </FlexBox> 
-                            <FlexBox id="_IDField3" justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginTop">
-                                <Label id="_IDPhoneNoLabel" text="Phone No:"/>
-                                <Input id="_IDGenInput3" value="{parkingModel>/phoneNo}" placeholder="Enter Phone No"/>
+                            <FlexBox
+                                id="_IDField2"
+                                justifyContent="SpaceBetween"
+                                alignItems="Center"
+                                class="sapUiSmallMarginTop"
+                            >
+                                <Label
+                                    id="_IDDriverNameLabel"
+                                    text="Driver Name:"
+                                />
+                                <Input
+                                    id="_IDGenInput2"
+                                    value=""
+                                    placeholder="Enter Driver Name"
+                                />
                             </FlexBox>
-                            <FlexBox id="_IDField4" justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginTop">
-                                <Label id="_IDTruckTypeLabel" text="Truck Type:"/>
+                            <FlexBox
+                                id="_IDField3"
+                                justifyContent="SpaceBetween"
+                                alignItems="Center"
+                                class="sapUiSmallMarginTop"
+                            >
+                                <Label
+                                    id="_IDPhoneNoLabel"
+                                    text="Phone No:"
+                                />
+                                <Input
+                                    id="_IDGenInput3"
+                                    value=""
+                                    placeholder="Enter Phone No"
+                                />
+                            </FlexBox>
+                            <FlexBox
+                                id="_IDField4"
+                                justifyContent="SpaceBetween"
+                                alignItems="Center"
+                                class="sapUiSmallMarginTop"
+                            >
+                                <Label
+                                    id="_IDTruckTypeLabel"
+                                    text="Truck Type:"
+                                />
                                 <Select
                                     id="_IDGenInput4"
-                                    selectedKey="{parkingModel>/truckType}"
+                                    selectedKey=""
                                 >
                                     <items>
-                                        <core:Item id="_IDGenItem1" text="Inward" key="Inward"/>
-                                        <core:Item id="_IDGenItem2" text="Outward" key="Outward"/>
+                                        <core:Item
+                                            id="_IDGenItem1"
+                                            text="Inward"
+                                            key="Inward"
+                                        />
+                                        <core:Item
+                                            id="_IDGenItem2"
+                                            text="Outward"
+                                            key="Outward"
+                                        />
                                     </items>
                                 </Select>
                             </FlexBox>
-                            <FlexBox id="_IDField5" justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginTop">
-                                <Label id="_IDSlotnoLabel" text="Slot No:"/>
+                            <FlexBox
+                                id="_IDField5"
+                                justifyContent="SpaceBetween"
+                                alignItems="Center"
+                                class="sapUiSmallMarginTop"
+                            >
+                                <Label
+                                    id="_IDSlotnoLabel"
+                                    text="Slot No:"
+                                />
                                 <Select
                                     id="parkingLotSelect"
-                                    selectedKey=""
+                                    selectedKey=" "
                                     items="{path: '/Parkingslots', filters: [{path: 'Available', operator: 'EQ', value1: true}]}"
                                 >
                                     <core:Item
@@ -383,15 +571,20 @@
                                     />
                                 </Select>
                             </FlexBox>
-                            <FlexBox id="_IDField6" justifyContent="End" class="sapUiSmallMarginTop">
-                                <Button id="idAssignSlot" text="Assign" press=".onSelectAssign"/>
+                            <FlexBox
+                                id="_IDField6"
+                                justifyContent="End"
+                                class="sapUiSmallMarginTop"
+                            >
+                                <Button
+                                    id="idAssignSlot"
+                                    text="Assign"
+                                    press=".onSelectAssign"
+                                />
                             </FlexBox>
-                            <Label id="idEmptyRow"/>
+                            <Label id="idEmptyRow" />
                         </VBox>
-
                     </ScrollContainer>
-
-
 
                     <ScrollContainer
                         id="Page4"
@@ -400,12 +593,10 @@
                         height="100%"
                         class="sapUiContentPadding"
                     >
-
                         <Table
                             id="historyTable"
                             inset="false"
                             items="{/ParkingHistory}"
-                            
                         >
                             <headerToolbar>
                                 <Toolbar id="historytableToolbar">
@@ -414,9 +605,20 @@
                                         text="History"
                                         titleStyle="H3"
                                     />
-                                    <ToolbarSpacer id="toolbarspacer3"></ToolbarSpacer>
-                                    <SearchField id="SearchField3" width="12rem" placeholder="Search" search="onSearch" />
-                                    <Button id="_IDGenButton8" text="Export" type="Emphasized" icon="sap-icon://excel-attachment" press="onHistoryExport"></Button>
+                                    <ToolbarSpacer id="toolbarspacer3" />
+                                    <SearchField
+                                        id="SearchField3"
+                                        width="12rem"
+                                        placeholder="Search"
+                                        search="onSearch"
+                                    />
+                                    <Button
+                                        id="_IDGenButton8"
+                                        text="Export"
+                                        type="Emphasized"
+                                        icon="sap-icon://excel-attachment"
+                                        press="onHistoryExport"
+                                    />
                                 </Toolbar>
                             </headerToolbar>
                             <columns>
@@ -467,19 +669,39 @@
                             <items>
                                 <ColumnListItem id="historycolumnListItem">
                                     <cells>
-                                        <Text id="historycellText1" text="{parkingslots_slotno}" />
-                                        <Text id="historycellText2" text="{vehicalType}" />
-                                        <Text id="historycellText3" text="{vehicalNo}" />
-                                        <Text id="historycellText4" text="{driverName}" />
-                                        <Text id="historycellText5" text="{phone}" />
-                                        <Text id="historycellText6" text="{assignedDate}" />
-                                        <Text id="historycellText7" text="{unassignedDate}" />
+                                        <Text
+                                            id="historycellText1"
+                                            text="{parkingslots/slotno}"
+                                        />
+                                        <Text
+                                            id="historycellText2"
+                                            text="{vehicalType}"
+                                        />
+                                        <Text
+                                            id="historycellText3"
+                                            text="{vehicalNo}"
+                                        />
+                                        <Text
+                                            id="historycellText4"
+                                            text="{driverName}"
+                                        />
+                                        <Text
+                                            id="historycellText5"
+                                            text="{phone}"
+                                        />
+                                        <Text
+                                            id="historycellText6"
+                                            text="{assignedDate}"
+                                        />
+                                        <Text
+                                            id="historycellText7"
+                                            text="{unassignedDate}"
+                                        />
                                     </cells>
                                 </ColumnListItem>
                             </items>
                         </Table>
                     </ScrollContainer>
-
                     <ScrollContainer
                         id="Page5"
                         horizontal="false"
@@ -487,176 +709,75 @@
                         height="100%"
                         class="sapUiContentPadding"
                     >
-                        <viz:VizFrame id="pieChart" uiConfig="{applicationSet:'fiori'}" vizType="pie">
-                            <viz:dataset>
-                                <viz.data:FlattenedDataset data="{/Parkingslots}">
-                                    <viz.data:dimensions>
-                                        <viz.data:DimensionDefinition name="SlotType" value="{type}" />
-                                    </viz.data:dimensions>
-                                    <viz.data:measures>
-                                        <viz.data:MeasureDefinition name="Availability" value="{Available}" />
-                                    </viz.data:measures>
-                                </viz.data:FlattenedDataset>
-                            </viz:dataset>
-                            <viz:feeds>
-                                <viz.feeds:FeedItem uid="size" type="Measure" values="Availability" />
-                                <viz.feeds:FeedItem uid="color" type="Dimension" values="SlotType" />
-                            </viz:feeds>
-                        </viz:VizFrame>
+                            <VBox
+                                id="vbox"
+                                fitContainer="true"
+                            >
+                                <suite:ChartContainer id="chartContainer">
+                                    <suite:content>
+                                        <suite:ChartContainerContent
+                                            id="chartContainerContent"
+                                        >
+                                            <suite:content>
+                                                <viz:VizFrame
+                                                    id="idpiechart"
+                                                    width="auto"
+                                                    uiConfig="{applicationSet:'fiori'}"
+                                                    vizType="pie"
+                                                    vizProperties="{
+                                        plotArea: {
+                                            dataLabel: {visible: true},
+                                            colorPalette: ['#57DA2A', '#EA2365']
+                                        },
+                                        title: {text:'Parking Lot Availability'}
+                                    }"
+                                                    selectData="myOnClickHandler"
+                                                    renderComplete="handleRenderComplete"
+                                                >
+                                                    <viz:dataset>
+                                                        <viz.data:FlattenedDataset
+                                                            id="flattenData"
+                                                            data="{ParkingLotModel>/Items}"
+                                                        >
+                                                            <viz.data:dimensions
+                                                            >
+                                                                <viz.data:DimensionDefinition
+                                                                    id="_IDGenDimensionDefinition1"
+                                                                    name="Available"
+                                                                    value="{ParkingLotModel>Name}"
+                                                                />
+                                                            </viz.data:dimensions>
+                                                            <viz.data:measures>
+                                                                <viz.data:MeasureDefinition
+                                                                    id="_IDGenMeasureDefinition1"
+                                                                    name="Count"
+                                                                    value="{ParkingLotModel>Count}"
+                                                                />
+                                                            </viz.data:measures>
+                                                        </viz.data:FlattenedDataset>
+                                                    </viz:dataset>
 
-
-                    </ScrollContainer>
-
-
-                    <ScrollContainer
-                        id="Page6"
-                        horizontal="false"
-                        vertical="true"
-                        height="100%"
-                        class="sapUiContentPadding"
-                    >
-  
-                        <Table
-                            id="reservationsTable"
-                            inset="false"
-                            mode="MultiSelect"
-                        >
-                            <headerToolbar>
-                                <Toolbar id="reservationstableToolbar">
-                                    <Title
-                                        id="reservationsableTitle"
-                                        text="Reservations"
-                                        titleStyle="H3"
-                                    />
-                                    <ToolbarSpacer id="reservationstoolbarspacer"></ToolbarSpacer>
-                                    <SearchField id="reservationsSearchField2" width="12rem" placeholder="Search" search="onSearch" />
-                                    <Button id="reservations_IDGenButton4" class="black-background" text="Approve" type="Emphasized" />
-                                </Toolbar>
-                            </headerToolbar>
-
-                            <columns>
-                                <Column id="reservationscolumn1">
-                                    <Text
-                                        id="reservationscolumn1Text"
-                                        text="Vehicle no"
-                                    />
-                                </Column>
-                                <Column id="reservationscolumn2">
-                                    <Text
-                                        id="reservationscolumn2Text"
-                                        text="Driver name"
-                                    />
-                                </Column>
-                                <Column id="reservationscolumn3">
-                                    <Text
-                                        id="reservationscolumn3Text"
-                                        text="Phone number"
-                                    />
-                                </Column>
-                                <Column id="reservationscolumn4">
-                                    <Text
-                                        id="reservationscolumn4Text"
-                                        text="Date"
-                                    />
-                                </Column>
-                                <Column id="reservationscolumn5">
-                                    <Text
-                                        id="reservationscolumn5Text"
-                                        text="Parking-lot no"
-                                    />
-                                </Column>
-                                <Column id="reservationscolumn6">
-                                    <Text
-                                        id="reservationscolumn6Text"
-                                        text="Type (Inward / Out-ward)"
-                                    />
-                                </Column>
-                            </columns>
-                            <items>
-                                <ColumnListItem id="reservationscolumnListItem">
-                                    <cells>
-                                        <Text
-                                            id="reservationscellText1"
-                                            
-                                        />
-                                        <Text
-                                            id="reservationscellText2"
-                                            
-                                        />
-                                        <Text
-                                            id="reservationscellText3"
-                                            
-                                        />
-                                        <Text
-                                            id="reservationscellText4"
-                                            
-                                        />
-                                        <Text
-                                            id="reservationscellText5"
-                                            
-                                        />
-                                        <Text
-                                            id="reservationscellText6"
-                                            
-                                        />
-                                        <Text
-                                            id="reservationscellText7"
-                                            
-                                        />
-                                    </cells>
-                                </ColumnListItem>
-                            </items>
-                        </Table>
-                    </ScrollContainer>
-
-                    <Dialog id="reserveDialog" title="Parking-lot Reservation" class="sapUiContentPadding" contentHeight="50%">
-                        <content>
-                            <VBox id="_IDReserveVBox1">
-                                <Label id="inputReserveVehiclenoLabel" text="Vehicle no" />
-                                <Input id="inputReserveVehicleno" value="{vehicleNo}"/>
-                                <Label id="inputReserveDriverNameLabel" text="Driver name" />
-                                <Input id="inputReserveDriverName" />
-                                <Label id="inputReservePhonenoLabel" text="Phone no" />
-                                <Input id="inputReservePhoneno" />
-                                <Label id="inputDateLable" text="Date" labelFor="DTI1"/>
-		                        <DateTimeInput  id="DTI1" 
-                                                type="Date" 
-                                                placeholder="Enter Date" 
-                                                class="sapUiSmallMarginBottom" />
-                                <Label id="inputReserveParkinglotnoLabel" text="Parking-lot no" />
-                                <ComboBox id="_IDSlotReserveInput" width="100%" items="{path: '/Parkingslots', filters:[{path:'Available', operator:'EQ', value1:'Available'}]}">
-                                    <core:Item id="_IDReserveInputItem4" key="{slotno}" text="{slotno}" />
-                                </ComboBox>
-                                <Label id="inputReserveVehicleTypeLabel" text="Vehicle Type" />
-                                <ComboBox id="_IDReserveInput" width="100%">
-                                    <core:Item id="_IDReserveGenItem1" key="Inward" text="Inward"/>
-                                    <core:Item id="_IDReserveGenItem2" key="Outward" text="Outward"/>
-                                </ComboBox>
+                                                    <viz:feeds>
+                                                        <viz.feeds:FeedItem
+                                                            id="_IDGenFeedItem1"
+                                                            uid="size"
+                                                            type="Measure"
+                                                            values="Count"
+                                                        />
+                                                        <viz.feeds:FeedItem
+                                                            id="_IDGenFeedItem2"
+                                                            uid="color"
+                                                            type="Dimension"
+                                                            values="Available"
+                                                        />
+                                                    </viz:feeds>
+                                                </viz:VizFrame>
+                                            </suite:content>
+                                        </suite:ChartContainerContent>
+                                    </suite:content>
+                                </suite:ChartContainer>
                             </VBox>
-                        </content>
-                        <buttons>
-                            <Button id="reserveBtn" text="Reserve" press=".onSaveReserve" type="Accept"/>
-                            <Button id="cancelBtn" text="Cancel" press=".onCancelReserve" type="Emphasized"/>
-                        </buttons>
-                    </Dialog> 
-
-                    <Dialog id="AddDialog" title="Parking-lot Reservation" class="sapUiContentPadding" contentHeight="20%">
-                        <content>
-                            <VBox id="_IDAddVBox1">
-                                <Label id="inputAddSlotnoLabel" text="Slot no" />
-                                <Input id="inputAddSlotno" />
-                                <Label id="inputAddVehicleTypeLabel" text="Vehicle Type" />
-                                <ComboBox id="_IDAddInput" width="100%">
-                                    <core:Item id="_IDAddGenItem1" key="Inward" text="Inward"/>
-                                    <core:Item id="_IDAddGenItem2" key="Outward" text="Outward"/>
-                                </ComboBox>
-                            </VBox>
-                        </content>
-                        <buttons>
-                            <Button id="AddBtn" text="Add" press="onSaveAdd" type="Accept"/>
-                            <Button id="AddcancelBtn" text="Cancel" press="onCancelAdd" type="Emphasized"/>
-                        </buttons>
-                    </Dialog>     
+                    </ScrollContainer>
                 </pages>
             </NavContainer>
         </tnt:mainContents>

@@ -1,8 +1,8 @@
 slotno,type,Available
-PS001,Inward,true
-PS002,Inward,true
-PS003,Inward,true
-PS004,Outward,true
-PS005,Outward,true
-PS006,Outward,true
-PS007,Outward,true
+PS001,,true
+PS002,,true
+PS003,,true
+PS004,,true
+PS005,,true
+PS006,,true
+PS007,,true
