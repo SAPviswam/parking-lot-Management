@@ -1,0 +1,47 @@
+ <core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+>
+    <form:SimpleForm
+        id="idslotDetails"
+        editable="false"
+        layout="ColumnLayout"
+        columnsM="2"
+        columnsL="3"
+        columnsXL="4"
+    >
+        <Label
+            id="idDriverNameLabel"
+            text="Driver Name"
+        />
+        <Text
+            id="idDriverNameText"
+            text=""
+        />
+        <Label
+            id="idPhonenoLabel"
+            text="Phone no"
+        />
+        <Text
+            id="idPhonenoText"
+            text=""
+        />
+        <Label
+            id="idVehiclenoLabel"
+            text="Vehicle no"
+        />
+         <Text
+            id="idVehiclenoText"
+            text=""
+        />
+        <Label
+            id="idTypeLabel"
+            text="Vehicle Type"
+        />
+        <Text
+            id="idTypeText"
+            text=""
+        />
+    </form:SimpleForm>
+</core:FragmentDefinition>

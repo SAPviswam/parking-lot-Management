@@ -1,0 +1,317 @@
+<mvc:View
+    controllerName="com.app.reservations.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page>
+        <VBox
+            id="_IDPage"
+            class="_IDPage"
+            width="100%"
+            alignItems="Center"
+            justifyContent="SpaceBetween"
+        >
+            <!-- Header Section -->
+            <HBox
+                id="_IDHeaderSection"
+                class="_IDHeaderSection"
+                width="100%"
+                justifyContent="SpaceBetween"
+                alignItems="Center"
+            >
+                <Image
+                    class="_IDSAPLogo"
+                    id="_IDSAPLogo"
+                    src="./images/sap logo.png"
+                    width="80px" 
+                    height="auto"
+                />
+                <VBox
+                    id="_IDHeaderContent"
+                    class="_IDHeaderContent"
+                >
+                    <Text
+                        id="_IDHeaderText"
+                        text="Parking-lot Management System"
+                        class="HeaderText"
+                    />
+                    <Text
+                        id="_IDHeaderSubText"
+                        text="Your Space, Our Priority."
+                         class="HeaderSubText"
+                    />
+                </VBox>
+                <HBox
+                    id="_IDSideContent"
+                    class="_IDSideContent"
+                    alignItems="Center"
+                >
+                    <Button
+                        id="_IDAboutBtn"
+                        class="_IDAboutBtn"
+                        text="About"
+                        type="Transparent"
+                    />
+                    <Button
+                        id="_IDNotificationBtn"
+                        class="_IDNotificationBtn"
+                        icon="sap-icon://bell"
+                        type="Transparent"
+                    />
+                    <Button
+                        id="_IDUserBtn"
+                        class="_IDUserBtn"
+                        icon="sap-icon://customer"
+                        type="Transparent"
+                    />
+                </HBox>
+            </HBox>
+            <!-- Main Content -->
+            <HBox
+                id="_IDMainContent"
+                class="reservations-container"
+                justifyContent="SpaceBetween"
+                width="100%"
+            >
+                <VBox
+                    id="simpleForm"
+                    class="sapUiSmallMarginTop transparentForm"
+                    width="30%"
+                >
+                    <Label
+                        id="_IDReservationLabel1"
+                        required="true"
+                        text="Vehicle no"
+                        class="slotallotlable yellowLabel"
+                    />
+                    <Input
+                        id="VehicleNo"
+                        value=""
+                        placeholder="Enter Vehicle no"
+                        class="inputvalue"
+                    />
+
+                    <Label
+                        id="_IDReservationLabel2"
+                        required="true"
+                        text="Vendor Name"
+                        class="slotallotlable yellowLabel"
+                    />
+                    <Input
+                        id="VenderName"
+                        class="inputvalue"
+                        value=""
+                        placeholder="Enter Vendor Name"
+                    />
+
+                    <Label
+                        id="_IDReservationLabel3"
+                        required="true"
+                        text="Vendor Phone no"
+                        class="slotallotlable yellowLabel"
+                    />
+                    <Input
+                        id="VenderNo"
+                        class="inputvalue"
+                        value=""
+                        placeholder="Enter Vendor Phone no"
+                    />
+
+                    <Label
+                        id="_IDReservationLabel4"
+                        required="true"
+                        text="Driver name"
+                        class="slotallotlable yellowLabel"
+                    />
+                    <Input
+                        id="DriverName"
+                        class="inputvalue"
+                        value=""
+                        placeholder="Enter Driver name"
+                    />
+
+                    <Label
+                        id="_IDReservationLabel5"
+                        required="true"
+                        text="Driver Phone no"
+                        class="slotallotlable yellowLabel"
+                    />
+                    <Input
+                        id="DriverNo"
+                        class="inputvalue"
+                        value=""
+                        placeholder="Enter Driver Phone no"
+                    />
+
+                    <Label
+                        id="_IDReservationLabel6"
+                        required="true"
+                        text="Type (Inward / Out-ward)"
+                        class="slotallotlable yellowLabel"
+                    />
+                    <Input
+                        id="VehicleType"
+                        class="inputvalue"
+                        value=""
+                        placeholder="Enter Type"
+                    />
+
+                    <Label
+                        id="_IDReservationLabel7"
+                        required="true"
+                        text="Date"
+                        class="slotallotlable yellowLabel"
+                    />
+                    <DatePicker
+                        id="Rdateandtime"
+                        class="inputvalue"
+                        placeholder="Enter Date"
+                    />
+
+                    <Label id="idEmptyRow" />
+
+                    <HBox
+                        id="_IDActionBtn"
+                        class="_IDActionBtn"
+                        justifyContent="SpaceAround"
+                        alignItems="Inherit"
+                    >
+                        <Button
+                            id="idAssignSlot"
+                            text="Submit"
+                            press="onSubmit"
+                        />
+                        <Button
+                            id="idAssignSlot01"
+                            text="Cancel"
+                            press=".onCancelSubmit"
+                        />
+                    </HBox>
+                </VBox>
+                <!-- Image Section -->
+                <VBox
+                    id="_IDImageContainer"
+                    class="image-container"
+                    alignItems="End"
+                    justifyContent="End"
+                >
+                    <Image
+                        id="_IDTruckImage"
+                        src="./images/truck.png"
+                        class="main-image"
+                        width="800px"
+                    />
+                    <!-- <HBox
+                                    id="-IDLinksContainer"
+                                    class="icon-container"
+                                    justifyContent="SpaceBetween"
+                                >
+                                    <Image
+                                        id="_IDLink1" 
+                                        src="./images/sap logo.png"
+                                        class="icon"
+                                        width="35px"
+                                    />
+                                    <Image
+                                        id="_IDLink2"
+                                        src="./images/sap logo.png"
+                                        class="icon"
+                                        width="35px"
+                                    />
+                                </HBox> -->
+                </VBox>
+            </HBox>
+            <Title
+                id="_IDModulesText"
+                text="Modules We Offer "
+                class="ModulesText"
+            />
+        </VBox>
+        <HBox id="modulecontent"
+            justifyContent="SpaceAround"
+            class="sapUiSmallMarginTopBottom"
+        >
+            <VBox id="modulecontentSAPEWM"
+                alignItems="Center"
+                class="ModuleContent"
+            >
+                <!-- <Text text="SAP EWM" class="HeadTextModuleContent" /> -->
+                <Link id="modulecontentLinkSAPEWM"
+                    text="SAP EWM"
+                    href="https://www.sap.com"
+                    target="_blank"
+                    class="HeadTextModuleContent"
+                />
+                <Image id="imageSAPEWM"
+                    src="https://i.pinimg.com/originals/e3/5b/86/e35b8679124625148e3fb1983c95ed38.png"
+                    class="Imagesize"
+                />
+            </VBox>
+            <VBox id="modulecontentSAPTM"
+                alignItems="Center"
+                class="ModuleContent"
+            >
+                <!-- <Text text="SAP TM" class="HeadTextModuleContent"/> -->
+                <Link id="modulecontentLinkSAPTM"
+                    text="SAP TM"
+                    href="https://www.sap.com"
+                    target="_blank"
+                    class="HeadTextModuleContent"
+                />
+                <Image id="imageTM"
+                    src="https://www.pngmart.com/files/11/Logistics-Transparent-PNG.png"
+                    class="ImagesizeTM"
+                />
+            </VBox>
+            <VBox id="modulecontentSAPMFS"
+                alignItems="Center"
+                class="ModuleContent"
+            >
+                <!-- <Text text="SAP MFS" class="HeadTextModuleContent"/> -->
+                <Link id="modulecontentLinkSAPMFS"
+                    text="SAP MFS"
+                    href="https://www.sap.com"
+                    target="_blank"
+                    class="HeadTextModuleContent"
+                />
+                <Image id="imageMFS"
+                    src="https://i.pinimg.com/564x/56/29/37/56293741dfc400ec45a77fb6cebe2483.jpg"
+                    class="ImagesizeMFS"
+                />
+            </VBox>
+            <VBox id="modulecontentSAPBTP"
+                alignItems="Center"
+                class="ModuleContent"
+            >
+                <!-- <Text text="SAP BTP" class="HeadTextModuleContent"/> -->
+                <Link id="modulecontentLinkSAPBTP"
+                    text="SAP BTP"
+                    href="https://www.sap.com"
+                    target="_blank"
+                    class="HeadTextModuleContent"
+                />
+                <Image id="imageBTP"
+                    src="https://sapbtp.in/wp-content/uploads/2023/02/SAP-BTP-IN-LOGO.png"
+                    class="ImagesizeBTP"
+                />
+            </VBox>
+            <VBox id="modulecontentSAPYL"
+                alignItems="Center"
+                class="ModuleContent"
+            >
+                <!-- <Text text="SAP YL" class="HeadTextModuleContent"/> -->
+                <Link id="modulecontentLinkSAPYL"
+                    text="SAP YL"
+                    href="https://www.sap.com"
+                    target="_blank"
+                    class="HeadTextModuleContent"
+                />
+                <Image id="imageYL"
+                    src="https://cdn-icons-png.flaticon.com/512/4704/4704299.png"
+                    class="ImagesizeBTP"
+                />
+            </VBox>
+        </HBox>
+    </Page>
+</mvc:View>

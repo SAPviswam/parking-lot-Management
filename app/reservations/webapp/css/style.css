@@ -1,0 +1,259 @@
+/* Base styles for larger screens */
+.Heading {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    padding-left: 3.5rem;
+    color: blue;
+}
+
+.transparentForm {
+    padding-left: 4rem;
+}
+
+.HeaderText {
+    font-size: 30px;
+    font-style: oblique;
+    font-weight: bold;
+    color: blue;
+}
+
+.ModulesText {
+    padding-top: 8rem;
+    padding-left: 2rem;
+    padding-right: 1rem;
+    font-size: 30px;
+    font-style: oblique;
+    font-weight: bold;
+    color: orange;
+}
+
+.orangeLink {
+    color: orange;
+}
+
+.ModuleContent {
+    background-color: rgb(224, 223, 223);
+    padding: 0.5rem;
+    border-radius: 2rem;
+}
+
+.HeadTextModuleContent {
+    font-size: x-large;
+    font-weight: bold;
+    color: rgb(255, 166, 0);
+}
+
+.TextModuleContent {
+    color: white;
+}
+
+.Imagesize {
+    width: 10rem;
+}
+
+.ImagesizeTM {
+    width: 12rem;
+}
+
+.ImagesizeMFS {
+    width: 10rem;
+    border-radius: 2rem;
+}
+
+.ImagesizeBTP {
+    height: 8rem;
+    width: 10rem;
+}
+
+/* Responsive styles for tablet and mobile devices */
+@media (max-width: 1024px) {
+    .Heading {
+        padding-top: 1.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 2rem;
+    }
+
+    .transparentForm {
+        padding-left: 2rem;
+    }
+
+    .HeaderText {
+        font-size: 24px;
+    }
+
+    .ModulesText {
+        padding-top: 4rem;
+        font-size: 24px;
+    }
+
+    .ModuleContent {
+        padding: 0.5rem;
+        border-radius: 1rem;
+    }
+
+    .HeadTextModuleContent {
+        font-size: large;
+    }
+
+    .Imagesize,
+    .ImagesizeTM,
+    .ImagesizeMFS,
+    .ImagesizeBTP {
+        width: 8rem;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile view adjustments */
+    .Heading {
+        padding-top: 1rem;
+        padding-bottom: 0.5rem;
+        padding-left: 1rem;
+    }
+
+    .transparentForm {
+        padding-left: 1rem;
+        width: 100%;
+    }
+
+    .HeaderText {
+        font-size: 20px;
+    }
+
+    .ModulesText {
+        padding-top: 2rem;
+        font-size: 20px;
+    }
+
+    .ModuleContent {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .HeadTextModuleContent {
+        font-size: medium;
+    }
+
+    .Imagesize,
+    .ImagesizeTM,
+    .ImagesizeMFS,
+    .ImagesizeBTP {
+        width: 100%;
+        max-width: 10rem; /* Adjust max-width if necessary */
+        height: auto;
+    }
+
+    .main-image {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .reservations-container,
+    .sapUiSmallMarginTopBottom {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.HeaderText {
+    font-size: 24px; /* Reduced size */
+    font-style: oblique;
+    font-weight: bold;
+    color: blue;
+}
+
+.HeaderSubText {
+    font-size: 16px; /* Smaller size for sub text */
+    color: gray; /* Adjust color if needed */
+}
+
+._IDSAPLogo {
+    width: 80px; /* Adjust size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+._IDMenuButton {
+    /* Optionally style the menu button */
+}
+/* Base styles for larger screens */
+.sapUiSmallMarginTopBottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.ModuleContent {
+    background-color: rgb(224, 223, 223);
+    padding: 0.5rem;
+    border-radius: 2rem;
+}
+
+.HeadTextModuleContent {
+    font-size: x-large;
+    font-weight: bold;
+    color: rgb(255, 166, 0);
+}
+
+.Imagesize {
+    width: 10rem;
+}
+
+.ImagesizeTM {
+    width: 12rem;
+}
+
+.ImagesizeMFS {
+    width: 10rem;
+    border-radius: 2rem;
+}
+
+.ImagesizeBTP {
+    height: 8rem;
+    width: 10rem;
+}
+
+/* Responsive styles for tablets and mobile devices */
+@media (max-width: 1024px) {
+    .sapUiSmallMarginTopBottom {
+        flex-direction: column; /* Stack VBox elements vertically */
+        align-items: center; /* Center-align VBox elements */
+    }
+
+    .ModuleContent {
+        width: 80%; /* Adjust width as needed */
+        margin-bottom: 1rem; /* Space between VBox elements */
+    }
+}
+
+@media (max-width: 768px) {
+    .sapUiSmallMarginTopBottom {
+        flex-direction: column; /* Stack VBox elements vertically */
+        align-items: center; /* Center-align VBox elements */
+    }
+
+    .ModuleContent {
+        width: 90%; /* Adjust width as needed */
+        margin-bottom: 1rem; /* Space between VBox elements */
+    }
+}
+/* CSS for labels and inputs */
+.slotallotlable {
+    width: 100%; /* Make labels take full width of the container */
+    max-width: 100%; /* Ensure labels do not exceed container width */
+}
+
+.inputvalue {
+    width: 100%; /* Make inputs take full width of the container */
+    max-width: 100%; /* Ensure inputs do not exceed container width */
+}
+
+/* Optional: Add padding to labels and inputs for better spacing */
+/* .slotallotlable {
+    padding: 0.5rem;
+}*/
+
+.inputvalue {
+    padding-bottom: 1rem;
+} 

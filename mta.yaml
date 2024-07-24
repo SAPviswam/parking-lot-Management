@@ -70,9 +70,24 @@ modules:
             - comappparkinglotmanagement.zip
           name: comappparkinglotmanagement
           target-path: resources/
+        - artifacts:
+            - comappreservations.zip
+          name: comappreservations
+          target-path: resources/
   - name: comappparkinglotmanagement
     type: html5
     path: app/parking-lot-management
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build:cf
+      supported-platforms:
+        []
+  - name: comappreservations
+    type: html5
+    path: app/reservations
     build-parameters:
       build-result: dist
       builder: custom
