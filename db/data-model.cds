@@ -12,7 +12,8 @@ entity Parkingslots {
 
 
 entity Parkinglotassigndetails {
-  key vehicleNo    : String   @title: 'Vehicle Number';
+  key ID           : UUID;
+      vehicleNo    : String   @title: 'Vehicle Number';
       driverName   : String   @title: 'Driver Name';
       phoneNo      : String   @title: 'Phone Number';
       truckType    : String   @title: 'Truck Type'; // 'Inbound' or 'Outbound'
