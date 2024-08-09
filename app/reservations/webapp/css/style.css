@@ -1,10 +1,48 @@
 /* Base styles for larger screens */
+    /* background-image: url('https://t3.ftcdn.net/jpg/04/85/27/78/360_F_485277873_MvVLHRwdFQKrZevHBDaIwbmhzBzD35UL.jpg') !important; */
+    /* background-image: url("https://th.bing.com/th/id/R.1d2bc909fa6806c62ad5d9ff44200862?rik=ZLAWar2XKP5TUw&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f4%2f9%2f7%2f1311143-free-download-semi-truck-wallpaper-images-2048x1536-for-meizu.jpg&ehk=2AZtU5H8lzkcXO%2bnIrTZmL5Gctf805uP4o4gs4WgflY%3d&risl=&pid=ImgRaw&r=0") !important; */
+.page {
+    background-image: url("https://th.bing.com/th/id/R.1d2bc909fa6806c62ad5d9ff44200862?rik=ZLAWar2XKP5TUw&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f4%2f9%2f7%2f1311143-free-download-semi-truck-wallpaper-images-2048x1536-for-meizu.jpg&ehk=2AZtU5H8lzkcXO%2bnIrTZmL5Gctf805uP4o4gs4WgflY%3d&risl=&pid=ImgRaw&r=0") !important; 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+}  
+
+ .HeaderText {
+    font-size: 24px; 
+    font-style: oblique;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+} 
+ .HeaderSubText {
+    font-size: 16px; 
+    color: rgb(226, 250, 12); 
+}
 .Heading {
     padding-top: 2rem;
     padding-bottom: 1rem;
     padding-left: 3.5rem;
     color: blue;
 }
+._IDAboutBtn{
+    border: 2px solid blue;
+    border-radius: 5rem;
+    padding:0.4rem;
+    margin-right: 0.5rem;
+    margin-right: 2rem;
+    color: white !important;
+} 
+._IDBtn{
+    background-color: beige;
+    border-radius: 2rem;
+    margin-right: 0.5rem;
+}
+
+.Supporterlogo{
+    margin-top: 1rem;
+    margin-left: 3rem;
+}
+
 
 .transparentForm {
     padding-left: 4rem;
@@ -14,8 +52,8 @@
     font-size: 30px;
     font-style: oblique;
     font-weight: bold;
-    color: blue;
 }
+
 
 .ModulesText {
     padding-top: 8rem;
@@ -24,7 +62,7 @@
     font-size: 30px;
     font-style: oblique;
     font-weight: bold;
-    color: orange;
+    color: blue;
 }
 
 .orangeLink {
@@ -40,7 +78,7 @@
 .HeadTextModuleContent {
     font-size: x-large;
     font-weight: bold;
-    color: rgb(255, 166, 0);
+    color: rgb(0, 4, 255);
 }
 
 .TextModuleContent {
@@ -65,118 +103,11 @@
     width: 10rem;
 }
 
-/* Responsive styles for tablet and mobile devices */
-@media (max-width: 1024px) {
-    .Heading {
-        padding-top: 1.5rem;
-        padding-bottom: 0.5rem;
-        padding-left: 2rem;
-    }
-
-    .transparentForm {
-        padding-left: 2rem;
-    }
-
-    .HeaderText {
-        font-size: 24px;
-    }
-
-    .ModulesText {
-        padding-top: 4rem;
-        font-size: 24px;
-    }
-
-    .ModuleContent {
-        padding: 0.5rem;
-        border-radius: 1rem;
-    }
-
-    .HeadTextModuleContent {
-        font-size: large;
-    }
-
-    .Imagesize,
-    .ImagesizeTM,
-    .ImagesizeMFS,
-    .ImagesizeBTP {
-        width: 8rem;
-        height: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    /* Mobile view adjustments */
-    .Heading {
-        padding-top: 1rem;
-        padding-bottom: 0.5rem;
-        padding-left: 1rem;
-    }
-
-    .transparentForm {
-        padding-left: 1rem;
-        width: 100%;
-    }
-
-    .HeaderText {
-        font-size: 20px;
-    }
-
-    .ModulesText {
-        padding-top: 2rem;
-        font-size: 20px;
-    }
-
-    .ModuleContent {
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-
-    .HeadTextModuleContent {
-        font-size: medium;
-    }
-
-    .Imagesize,
-    .ImagesizeTM,
-    .ImagesizeMFS,
-    .ImagesizeBTP {
-        width: 100%;
-        max-width: 10rem; /* Adjust max-width if necessary */
-        height: auto;
-    }
-
-    .main-image {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .reservations-container,
-    .sapUiSmallMarginTopBottom {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-.HeaderText {
-    font-size: 24px; /* Reduced size */
-    font-style: oblique;
-    font-weight: bold;
-    color: blue;
-}
-
-.HeaderSubText {
-    font-size: 16px; /* Smaller size for sub text */
-    color: gray; /* Adjust color if needed */
-}
-
 ._IDSAPLogo {
-    width: 80px; /* Adjust size */
-    height: auto; /* Maintain aspect ratio */
+    width: 80px; 
+    height: auto; 
 }
 
-._IDMenuButton {
-    /* Optionally style the menu button */
-}
 /* Base styles for larger screens */
 .sapUiSmallMarginTopBottom {
     display: flex;
@@ -185,7 +116,7 @@
 }
 
 .ModuleContent {
-    background-color: rgb(224, 223, 223);
+    background-color: rgb(10, 10, 10);
     padding: 0.5rem;
     border-radius: 2rem;
 }
@@ -213,47 +144,35 @@
     height: 8rem;
     width: 10rem;
 }
-
-/* Responsive styles for tablets and mobile devices */
-@media (max-width: 1024px) {
-    .sapUiSmallMarginTopBottom {
-        flex-direction: column; /* Stack VBox elements vertically */
-        align-items: center; /* Center-align VBox elements */
-    }
-
-    .ModuleContent {
-        width: 80%; /* Adjust width as needed */
-        margin-bottom: 1rem; /* Space between VBox elements */
-    }
+.sapUiSmallMargin {
+    background-color: rgba(255, 208, 0, 0.541);
+    border-width: 2rem;
+    border: 2px solid black; 
+    padding: 0.8rem;
+    border-radius: 2rem;
+    position: relative;
+    z-index: 1;  
 }
-
-@media (max-width: 768px) {
-    .sapUiSmallMarginTopBottom {
-        flex-direction: column; /* Stack VBox elements vertically */
-        align-items: center; /* Center-align VBox elements */
-    }
-
-    .ModuleContent {
-        width: 90%; /* Adjust width as needed */
-        margin-bottom: 1rem; /* Space between VBox elements */
-    }
-}
-/* CSS for labels and inputs */
 .slotallotlable {
-    width: 100%; /* Make labels take full width of the container */
-    max-width: 100%; /* Ensure labels do not exceed container width */
+    width: 100%; 
+    max-width: 100%; 
+    color:black;
+    font-weight: bold;
+}
+.moveRight {
+    margin-left: 70rem !important;
+    margin-top: 0.2rem !important;
 }
 
+
 .inputvalue {
-    width: 100%; /* Make inputs take full width of the container */
-    max-width: 100%; /* Ensure inputs do not exceed container width */
+    width: 100%; 
+    max-width: 100%; 
 }
 
-/* Optional: Add padding to labels and inputs for better spacing */
-/* .slotallotlable {
-    padding: 0.5rem;
-}*/
+.inputfield {
+    width: 100%;
+}
 
-.inputvalue {
-    padding-bottom: 1rem;
-} 
+
+

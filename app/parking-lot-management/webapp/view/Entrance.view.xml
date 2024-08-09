@@ -1,4 +1,5 @@
 <mvc:View
+    xmlns:odata="sap.ui.comp.odata"
     controllerName="com.app.parkinglotmanagement.controller.Entrance"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
@@ -14,11 +15,17 @@
     xmlns:suite="sap.suite.ui.commons"
     height="100%"
     displayBlock="true"
+    xmlns:ndc="sap.ndc"
 >
-
-    <tnt:ToolPage id="toolPage" class="toolHeader">
-        <tnt:header >
-            <tnt:ToolHeader id="toolHeader" class="toolHeader">
+    <tnt:ToolPage
+        id="toolPage"
+        class="toolHeader"
+    >
+        <tnt:header>
+            <tnt:ToolHeader
+                id="toolHeader"
+                class="toolHeader"
+            >
                 <Button
                     id="sideNavigationToggleButton"
                     icon="sap-icon://menu2"
@@ -58,12 +65,13 @@
                     icon="sap-icon://bell"
                     press="onNotificationPress"
                 >
-                <customData>
-                <BadgeCustomData id="_IDNotificationCount" value="{/Notification/$count}" visible="true">
-                
-                
-                </BadgeCustomData>
-                </customData>
+                    <customData>
+                        <BadgeCustomData
+                            id="_IDNotificationCount"
+                            value="{/Notification/$count}"
+                            visible="true"
+                        />
+                    </customData>
                 </Button>
                 <Image
                     id="sapLogo"
@@ -142,14 +150,17 @@
                     >
                         <Table
                             id="allSlotsTable"
-                            alternateRowColors="true"
                             items="{/Parkingslots}"
                             selectionChange="onSelectSlot"
-                            class = "body"
+                            class="body"
+                            growing="true"
+                            growingThreshold="100"
                         >
-                            <headerToolbar >
-                            
-                                <Toolbar id="allSlotstableToolbar"  class="stickyToolbar">
+                            <headerToolbar>
+                                <Toolbar
+                                    id="allSlotstableToolbar"
+                                    class="stickyToolbar"
+                                >
                                     <Title
                                         id="allSlotstableTitle"
                                         text="All slots"
@@ -165,49 +176,65 @@
                                     <Button
                                         id="_IDGenButton1"
                                         text="Add New Slot"
-                                        type="Accept"
+                                        type="Emphasized"
                                         press="onAddButton"
                                     />
                                 </Toolbar>
                             </headerToolbar>
-                            <columns >
-                                <Column id="allSlotscolumn1" class ="stickyToolbar">
+                            <columns>
+                                <Column
+                                    id="allSlotscolumn1"
+                                    class="stickyToolbar"
+                                >
                                     <Text
                                         id="allSlotscolumn1Text"
                                         text="Slot no"
                                     />
                                 </Column>
-                                <!-- <Column id="allSlotscolumn2">
-                        <Text id="allSlotscolumn2Text" text="Type" />
-                    </Column> -->
-                                <Column id="allSlotscolumn3">
+                                <Column
+                                    id="allSlotscolumn2"
+                                    class="stickyToolbar"
+                                >
+                                    <Text
+                                        id="allSlotscolumn2Text"
+                                        text="Type"
+                                    />
+                                </Column>
+
+                                <Column id="allSlotscolumn3" class="stickyToolbar">
                                     <Text
                                         id="allSlotscolumn3Text"
-                                        text="Availability"
+                                        text="Status"
                                     />
                                 </Column>
                             </columns>
                             <items>
                                 <ColumnListItem
                                     id="allSlotscolumnListItem"
-                                    type="Navigation"
                                 >
                                     <cells>
                                         <Text
                                             id="alllotscellText1"
                                             text="{slotno}"
                                         />
-                                        <Text
+                                         <Text
+                                            id="alllotscellText2"
+                                            text="{type}"
+                                        />
+                                        <!-- <Text
                                             id="allSlotscellText3"
                                             text="{Available}"
+                                        /> -->
+                                        <ObjectStatus
+                                            id="IDGenText10"
+                                            text="{Available}"
+                                            state="{path: 'Available', formatter: '.statusColorFormatter'}"
                                         />
                                     </cells>
                                 </ColumnListItem>
                             </items>
                         </Table>
                     </ScrollContainer>
-
-
 
                     <ScrollContainer
                         id="Page2"
@@ -219,16 +246,19 @@
                             id="assignedSlotsTable"
                             growing="true"
                             inset="false"
-                            items="{/Parkinglotassigndetails}"
+                            items="{ path: '/Parkinglotassigndetails', parameters: { $count : true }}"
                             mode="MultiSelect"
                             growingThreshold="10"
                             class="assignedSlotTable"
                         >
                             <headerToolbar>
-                                <Toolbar id="assignedSlotstableToolbar" class="stickyToolbar">
+                                <Toolbar
+                                    id="assignedSlotstableToolbar"
+                                    class="stickyToolbar"
+                                >
                                     <Title
                                         id="assignedSlotstableTitle"
-                                        text="Assigned Slots"
+                                        text="Assigned Slots ({/Parkinglotassigndetails/$count})"
                                         titleStyle="H3"
                                     />
                                     <ToolbarSpacer id="toolbarspacer" />
@@ -244,6 +274,20 @@
                                         icon="sap-icon://edit"
                                         press="onEdit"
                                     />
+                                    <!-- <Button
+                                        id="_IDScannerButton"
+                                        class="black-background"
+                                        icon="sap-icon://bar-code"
+                                        text="Scanner"
+                                        press="onScan"
+                                    /> -->
+                                    	<ndc:BarcodeScannerButton
+                                            id="sampleBarcodeScannerButton"
+                                            scanSuccess="onScanSuccess"
+                                            scanFail="onScanError"
+                                            inputLiveUpdate="onScanLiveupdate"
+                                            dialogTitle="Barcode Scanner Button Sample"
+                                        />
                                     <Button
                                         id="_IDGenButton4"
                                         class="black-background"
@@ -268,9 +312,9 @@
                                                 />
                                                 <MenuItem
                                                     id="idMenuItem2"
-                                                    text="Print"
+                                                    text="Pdf"
                                                     icon="sap-icon://pdf-attachment"
-                                                    press="onPrint"
+                                                    press="onPressPdf"
                                                 />
                                             </Menu>
                                         </menu>
@@ -368,24 +412,27 @@
                                                 id="assignedSlotscellText4"
                                                 text="{truckType}"
                                             />
-                                            <Select
+                                            <Input
                                                 id="_IDEditInput4"
                                                 visible="false"
-                                                selectedKey="{truckType}"
+                                                value="{truckType}"
+                                                editable="false"
+                                                
                                             >
-                                                <items>
+                                                <!-- <items >
                                                     <core:Item
                                                         id="_IDEditItem1"
                                                         text="Inward"
                                                         key="Inward"
+                                                        
                                                     />
                                                     <core:Item
                                                         id="_IDEditItem2"
                                                         text="Outward"
                                                         key="Outward"
                                                     />
-                                                </items>
-                                            </Select>
+                                                </items> -->
+                                            </Input>
                                         </VBox>
                                         <VBox id="_IDassignedSlots5">
                                             <Text
@@ -404,7 +451,7 @@
                                                 id="assignedSlotscellText6"
                                                 text="{parkingslot/slotno}"
                                             />
-                                            <Select
+                                            <ComboBox
                                                 id="_IDassignedSlotsInputparkingLotSelect"
                                                 selectedKey=""
                                                 items="{path: '/Parkingslots', filters: [{path: 'Available', operator: 'EQ', value1: 'Available' }], templateShareable:true}"
@@ -415,7 +462,7 @@
                                                     key="{slotno}"
                                                     text="{slotno}"
                                                 />
-                                            </Select>
+                                            </ComboBox>
                                         </VBox>
                                         <VBox id="_IDSaveEdit">
                                             <Button
@@ -460,8 +507,6 @@
                                 id="_IDHeadLabel"
                                 text="Parking-lot Allocation"
                                 class="sapUiSmallMarginTopHeading"
-                                
-                                
                             />
                             <FlexBox
                                 id="_IDField1"
@@ -473,7 +518,6 @@
                                     id="_IDVehicleNoLabel"
                                     text="Vehicle No:"
                                     class="slotallotlable"
-                                    
                                 />
                                 <Input
                                     id="_IDGenInput1"
@@ -527,23 +571,15 @@
                                     text="Truck Type:"
                                     class="slotallotlable"
                                 />
-                                <Select
-                                    id="_IDGenInput4"
-                                    selectedKey=""
-                                >
-                                    <items>
-                                        <core:Item
-                                            id="_IDGenItem1"
-                                            text="Inward"
-                                            key="Inward"
-                                        />
-                                        <core:Item
-                                            id="_IDGenItem2"
-                                            text="Outward"
-                                            key="Outward"
-                                        />
-                                    </items>
-                                </Select>
+                                
+                                <HBox id="_IDSelectCheckBox">
+                                    <CheckBox
+                                        id="_IDOutboundCheckBox"
+                                        text="Outbound"
+                                        class="SlotTypeCheckBox"
+                                        select="onTruckTypeSelect"
+                                    />
+                                </HBox>
                             </FlexBox>
                             <FlexBox
                                 id="_IDField5"
@@ -559,16 +595,20 @@
                                 <Select
                                     id="parkingLotSelect"
                                     selectedKey=" "
-                                    items="{path: '/Parkingslots', filters: [{path: 'Available', operator: 'EQ', value1: 'Available'}]}"
-                                    
+                                     items="{
+                                        path: '/Parkingslots',
+                                        filters: [
+                                            {path: 'Available', operator: 'EQ', value1: 'Available'},
+                                            {path: 'type', operator: 'EQ', value1: 'Inbound'} 
+                                        ]
+                                    }"
                                 >
                                     <core:Item
-                                    class="dropdown"
+                                        class="dropdown"
                                         id="_IDGenItem4"
                                         key="{slotno}"
                                         text="{slotno}"
                                     />
-                                    
                                 </Select>
                             </FlexBox>
                             <FlexBox
@@ -579,15 +619,20 @@
                                 <Button
                                     id="idAssignSlot"
                                     text="Assign"
-                                    press=".onSelectAssign"
+                                    press="onSelectAssign"
                                 />
                             </FlexBox>
                             <Label id="idEmptyRow" />
                         </VBox>
+                       
+                        <Image
+                    id="truckImage"
+                    class="truckpng"
+                    height="20rem"
+                    src="https://static.vecteezy.com/system/resources/previews/019/071/243/original/truck-isolated-on-transparent-background-3d-rendering-illustration-free-png.png"
+                    
+                />
                     </ScrollContainer>
-
-
-
 
                     <ScrollContainer
                         id="Page4"
@@ -603,7 +648,10 @@
                             class="histortTable"
                         >
                             <headerToolbar>
-                                <Toolbar id="historytableToolbar" class="stickyToolbar">
+                                <Toolbar
+                                    id="historytableToolbar"
+                                    class="stickyToolbar"
+                                >
                                     <Title
                                         id="historytableTitle"
                                         text="History"
@@ -713,76 +761,75 @@
                         height="100%"
                         class="sapUiContentPadding"
                     >
-                            <VBox
-                                id="vbox"
-                                fitContainer="true"
-                            >
-                                <suite:ChartContainer id="chartContainer">
-                                    <suite:content>
-                                        <suite:ChartContainerContent
-                                            id="chartContainerContent"
-                                        >
-                                            <suite:content>
-                                                <viz:VizFrame
-                                                    id="idpiechart"
-                                                    width="auto"
-                                                    uiConfig="{applicationSet:'fiori'}"
-                                                    vizType="donut"
-                                                    vizProperties="{
+                        <VBox
+                            id="vbox"
+                            fitContainer="true"
+                        >
+                            <suite:ChartContainer id="chartContainer">
+                                <suite:content>
+                                    <suite:ChartContainerContent
+                                        id="chartContainerContent"
+                                    >
+                                        <suite:content>
+                                            <viz:VizFrame
+                                                id="idpiechart"
+                                                width="auto"
+                                                uiConfig="{applicationSet:'fiori'}"
+                                                vizType="donut"
+                                                vizProperties="{
                                         plotArea: {
                                             dataLabel: {visible: true},
                                             colorPalette: ['#57DA2A', '#EA2365', '#090979']
                                         },
                                         title: {text:'Parking Lot Availability'}
                                     }"
-                                                    selectData="myOnClickHandler"
-                                                    renderComplete="handleRenderComplete"
-                                                >
-                                                    <viz:dataset>
-                                                        <viz.data:FlattenedDataset
-                                                            id="flattenData"
-                                                            data="{ParkingLotModel>/Items}"
-                                                        >
-                                                            <viz.data:dimensions
-                                                            >
-                                                                <viz.data:DimensionDefinition
-                                                                    id="_IDGenDimensionDefinition1"
-                                                                    name="Available"
-                                                                    value="{ParkingLotModel>Name}"
-                                                                />
-                                                            </viz.data:dimensions>
-                                                            <viz.data:measures>
-                                                                <viz.data:MeasureDefinition
-                                                                    id="_IDGenMeasureDefinition1"
-                                                                    name="Count"
-                                                                    value="{ParkingLotModel>Count}"
-                                                                />
-                                                            </viz.data:measures>
-                                                        </viz.data:FlattenedDataset>
-                                                    </viz:dataset>
+                                                selectData="OnClickHandler"
+                                                renderComplete="handleRenderComplete"
+                                            >
+                                                <viz:dataset>
+                                                    <viz.data:FlattenedDataset
+                                                        id="flattenData"
+                                                        data="{ParkingLotModel>/Items}"
+                                                    >
+                                                        <viz.data:dimensions>
+                                                            <viz.data:DimensionDefinition
+                                                                id="_IDGenDimensionDefinition1"
+                                                                name="Available"
+                                                                value="{ParkingLotModel>Name}"
+                                                            />
+                                                        </viz.data:dimensions>
+                                                        <viz.data:measures>
+                                                            <viz.data:MeasureDefinition
+                                                                id="_IDGenMeasureDefinition1"
+                                                                name="Count"
+                                                                value="{ParkingLotModel>Count}"
+                                                            />
+                                                        </viz.data:measures>
+                                                    </viz.data:FlattenedDataset>
+                                                </viz:dataset>
 
-                                                    <viz:feeds>
-                                                        <viz.feeds:FeedItem
-                                                            id="_IDGenFeedItem1"
-                                                            uid="size"
-                                                            type="Measure"
-                                                            values="Count"
-                                                        />
-                                                        <viz.feeds:FeedItem
-                                                            id="_IDGenFeedItem2"
-                                                            uid="color"
-                                                            type="Dimension"
-                                                            values="Available"
-                                                        />
-                                                    </viz:feeds>
-                                                </viz:VizFrame>
-                                            </suite:content>
-                                        </suite:ChartContainerContent>
-                                    </suite:content>
-                                </suite:ChartContainer>
-                            </VBox>
+                                                <viz:feeds>
+                                                    <viz.feeds:FeedItem
+                                                        id="_IDGenFeedItem1"
+                                                        uid="size"
+                                                        type="Measure"
+                                                        values="Count"
+                                                    />
+                                                    <viz.feeds:FeedItem
+                                                        id="_IDGenFeedItem2"
+                                                        uid="color"
+                                                        type="Dimension"
+                                                        values="Available"
+                                                    />
+                                                </viz:feeds>
+                                            </viz:VizFrame>
+                                        </suite:content>
+                                    </suite:ChartContainerContent>
+                                </suite:content>
+                            </suite:ChartContainer>
+                        </VBox>
                     </ScrollContainer>
-                     <ScrollContainer
+                    <!-- <ScrollContainer
                         id="Page6"
                         horizontal="false"
                         vertical="true"
@@ -918,8 +965,165 @@
                                 </ColumnListItem>
                             </items>
                         </Table>
+                    </ScrollContainer> -->
+                    <ScrollContainer
+                        id="Page6"
+                        horizontal="false"
+                        vertical="true"
+                        height="100%"
+                        class="sapUiContentPadding"
+                    >
+                        <Table
+                            id="reservationsTable"
+                            inset="false"
+                            mode="MultiSelect"
+                            items="{/Reservation}"
+                            class="reservationTable"
+                        >
+                            <headerToolbar>
+                                <Toolbar
+                                    id="reservationstableToolbar"
+                                    class="stickyToolbar"
+                                >
+                                    <Title
+                                        id="reservationsableTitle"
+                                        text="Reservation Request"
+                                        titleStyle="H3"
+                                    />
+                                    <ToolbarSpacer
+                                        id="reservationstoolbarspacer"
+                                    />
+                                    <SearchField
+                                        id="SearchField4"
+                                        width="12rem"
+                                        placeholder="Search"
+                                        search="onSearch"
+                                    />
+                                    <Button
+                                        id="reservations_IDGenButton4"
+                                        class="black-background"
+                                        text="Accept"
+                                        type="Emphasized"
+                                        press="onPressAccept"
+                                    />
+                                </Toolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column id="reservationscolumn4">
+                                    <Text
+                                        id="reservationscolumn4Text"
+                                        text="Date"
+                                    />
+                                </Column>
+                                <Column id="reservationscolumn1">
+                                    <Text
+                                        id="reservationscolumn1Text"
+                                        text="Vehicle no"
+                                    />
+                                </Column>
+                                <Column id="reservationscolumn01">
+                                    <Text
+                                        id="reservationscolumn01Text"
+                                        text="Vendor Name"
+                                    />
+                                </Column>
+                                <Column id="reservationscolumn02">
+                                    <Text
+                                        id="reservationscolumn02Text"
+                                        text="Vendor Phone no"
+                                    />
+                                </Column>
+                                <Column id="reservationscolumn2">
+                                    <Text
+                                        id="reservationscolumn2Text"
+                                        text="Driver name"
+                                    />
+                                </Column>
+                                <Column id="reservationscolumn3">
+                                    <Text
+                                        id="reservationscolumn3Text"
+                                        text="Driver Phone number"
+                                    />
+                                </Column>
+                                <Column id="reservationscolumn6">
+                                    <Text
+                                        id="reservationscolumn6Text"
+                                        text="Type (Inward / Out-ward)"
+                                    />
+                                </Column>
+                                <Column id="reservationscolumn5">
+                                    <Text
+                                        id="reservationscolumn5Text"
+                                        text="Parking-lot no"
+                                    />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem id="reservationscolumnListItem">
+                                    <cells>
+                                        <Text
+                                            id="reservationscellText4"
+                                            text="{ReservationTime}"
+                                        />
+                                        <Text
+                                            id="reservationscellText1"
+                                            text="{RVehicleno}"
+                                        />
+                                        <Text
+                                            id="reservationscellText01"
+                                            text="{RVenderName}"
+                                        />
+                                        <Text
+                                            id="reservationscellText02"
+                                            text="{RVenderMobileNo}"
+                                        />
+                                        <Text
+                                            id="reservationscellText2"
+                                            text="{RDriverName}"
+                                        />
+                                        <Text
+                                            id="reservationscellText3"
+                                            text="{RDriverMobileNo}"
+                                        />
+                                        <Text
+                                            id="reservationscellText5"
+                                            text="{RVehicleType}"
+                                        />
+                                        <!-- <ComboBox
+                                            id="SlotNumberReserved"
+                                            editable="true"
+                                            selectionChange="{slotno}"
+                                            items="{path: '/Parkingslots', filters: [{path: 'Available', operator: 'EQ', value1: 'Available'}],templateShareable:true}"
+                                        >
+                                            <core:Item
+                                                id="SlotNumberitemReserved"
+                                                key="{slotno}"
+                                                text="{slotno}"
+                                            />
+                                        </ComboBox> -->
+                                        <ComboBox
+                                            id="SlotNumberReserved"
+                                            editable="true"
+                                            selectionChange="onSlotNumberChange"
+                                            items="{
+                                                    path: '/Parkingslots',
+                                                    filters: [{ path: 'Available', operator: 'EQ', value1: 'Available'}],
+                                                    templateShareable: true
+                                                }"
+                                        >
+                                            <core:Item
+                                                id="SlotnoitemReserved"
+                                                key="{slotno}"
+                                                text="{slotno}"
+                                            />
+                                        </ComboBox>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
                     </ScrollContainer>
-                     <ScrollContainer
+
+                    <ScrollContainer
                         id="Page7"
                         horizontal="false"
                         vertical="true"
@@ -934,15 +1138,29 @@
                             class="reservedTable"
                         >
                             <headerToolbar>
-                                <Toolbar id="reservedtableToolbar" class="stickyToolbar">
+                                <Toolbar
+                                    id="reservedtableToolbar"
+                                    class="stickyToolbar"
+                                >
                                     <Title
                                         id="reservedableTitle"
                                         text="Reserved Slots"
                                         titleStyle="H3"
                                     />
-                                    <ToolbarSpacer id="reservedtoolbarspacer"></ToolbarSpacer>
-                                    <SearchField id="SearchField5" width="12rem" placeholder="Search" search="onSearch" />
-                                    <Button id="reserved_IDGenButton4" class="black-background" text="Approve" type="Emphasized" />
+                                    <ToolbarSpacer id="reservedtoolbarspacer" />
+                                    <SearchField
+                                        id="SearchField5"
+                                        width="12rem"
+                                        placeholder="Search"
+                                        search="onSearch"
+                                    />
+                                    <Button
+                                        id="reserved_IDGenButton4"
+                                        class="black-background"
+                                        text="Approve"
+                                        type="Emphasized"
+                                        press="onReserveAssign"
+                                    />
                                 </Toolbar>
                             </headerToolbar>
                             <columns>
@@ -958,18 +1176,18 @@
                                         text="Vehicle no"
                                     />
                                 </Column>
-                                
+
                                 <Column id="reservedcolumn01">
-                                <Text
-                                    id="reservedcolumn01Text"
-                                    text="Vendor Name"
-                                />
+                                    <Text
+                                        id="reservedcolumn01Text"
+                                        text="Vendor Name"
+                                    />
                                 </Column>
                                 <Column id="reservedcolumn02">
-                                <Text
-                                    id="reservedcolumn02Text"
-                                    text="Vendor Phone no"
-                                />
+                                    <Text
+                                        id="reservedcolumn02Text"
+                                        text="Vendor Phone no"
+                                    />
                                 </Column>
                                 <Column id="reservedcolumn2">
                                     <Text
@@ -984,12 +1202,12 @@
                                     />
                                 </Column>
 
-                                <!-- <Column id="reservedcolumn6">
+                                <Column id="reservedcolumn6">
                                     <Text
                                         id="reservedcolumn6Text"
                                         text="Type (Inward / Out-ward)"
                                     />
-                                </Column> -->
+                                </Column>
                                 <Column id="reservedcolumn5">
                                     <Text
                                         id="reservedcolumn5Text"
@@ -1003,38 +1221,35 @@
                                         <ObjectIdentifier
                                             id="reservedcellText4"
                                             text="{ReservationTime1}"
-
                                         />
                                         <ObjectIdentifier
                                             id="reservedcellText1"
                                             text="{R1Vehicleno}"
-
                                         />
                                         <ObjectIdentifier
                                             id="reservedcellText01"
                                             text="{R1VenderName}"
-
                                         />
                                         <ObjectIdentifier
                                             id="reservedcellText02"
                                             text="{R1VenderMobileNo}"
-
                                         />
                                         <ObjectIdentifier
                                             id="reservedcellText2"
                                             text="{R1DriverName}"
-
                                         />
                                         <ObjectIdentifier
                                             id="reservedcellText3"
                                             text="{R1DriverMobileNo}"
-
+                                        />
+                                        <ObjectIdentifier
+                                            id="reservedcellText5"
+                                            text="{R1VehicleType}"
                                         />
                                         <ObjectIdentifier
                                             id="reservedcellText6"
                                             title="{R1slotno/slotno}"
-                                        /> 
- 
+                                        />
                                     </cells>
                                 </ColumnListItem>
                             </items>
@@ -1079,7 +1294,7 @@
                             </VBox>
                         </HBox>
                     </ScrollContainer> -->
-
+<!-- 
                     <Dialog
                         id="AddDialog"
                         title="Add New Slot"
@@ -1092,7 +1307,10 @@
                                     id="inputAddSlotnoLabel"
                                     text="Slot no"
                                 />
-                                <Input id="inputAddSlotno" />
+                                <Input
+                                    id="inputAddSlotno"
+                                    placeholder="Enter the number to create the slots"
+                                />
                             </VBox>
                         </content>
                         <buttons>
@@ -1109,7 +1327,54 @@
                                 type="Emphasized"
                             />
                         </buttons>
+                    </Dialog> -->
+                    <Dialog
+                        id="AddDialog"
+                        title="Add New Slot"
+                        class="sapUiContentPadding"
+                        contentHeight="20%"
+                    >
+                        <content>
+                            <VBox id="_IDAddVBox1">
+                            <Title id="_IDcheckBoxHeading"
+                                text="Select the Type of slot"
+                                titleStyle="H6"
+                                
+                            >
+
+                            </Title>
+                            <HBox id="_IDSlotTypecheckBox">
+                            <CheckBox
+                                    id="inboundCheckBox"
+                                    text="Inbound"
+                                    select="onInboundSelect"
+                                />
+                                <CheckBox
+                                    id="outboundCheckBox"
+                                    text="Outbound"
+                                    select="onOutboundSelect"
+                                />
+                                </HBox>
+                                <Label id="_IDEmptyLabel"/>
+                                <Title id="inputAddSlotnoLabel" text="Slot Count"  titleStyle="H6"/>
+                                <Input
+                                    id="inputAddSlotno"
+                                    placeholder="Enter the number of slots to create"
+                                />
+                                
+                            </VBox>
+                        </content>
+                        <buttons>
+                            <Button id="AddBtn" text="Add" press="onSaveAdd" type="Accept" />
+                            <Button
+                                id="AddcancelBtn"
+                                text="Cancel"
+                                press="onCancelAdd"
+                                type="Emphasized"
+                            />
+                        </buttons>
                     </Dialog>
+
                     <Dialog
                         id="reserveDialog"
                         title="Parking-lot Reservation"
@@ -1130,14 +1395,18 @@
                                     id="inputReserveDriverNameLabel"
                                     text="Driver name"
                                 />
-                                <Input id="inputReserveDName" 
-                                        value="{driverName}"/>
+                                <Input
+                                    id="inputReserveDName"
+                                    value="{driverName}"
+                                />
                                 <Label
                                     id="inputReservePhonenoLabel"
                                     text="Phone no"
                                 />
-                                <Input id="inputReservePhoneno" 
-                                        value="{PhoneNo}"/>
+                                <Input
+                                    id="inputReservePhoneno"
+                                    value="{PhoneNo}"
+                                />
                                 <Label
                                     id="inputDateLable"
                                     text="Date"
@@ -1199,7 +1468,42 @@
                                 type="Emphasized"
                             />
                         </buttons>
-                        </Dialog>
+                    </Dialog>
+                <Dialog
+    title="Assigned Slot Details"
+    id="editDetailsDialog"
+    class="scandetails"
+    contentHeight="35%"
+
+>
+    <VBox class="scandetails">
+        <Label text="Vehicle No" />
+        <Text id="vehicleNoText" />
+
+        <Label text="Driver Name" />
+        <Text id="driverNameText" />
+
+        <Label text="Phone No" />
+        <Text id="phoneNoText" />
+
+        <Label text="Truck Type" />
+        <Text id="truckTypeText" />
+
+        <Label text="Assign Time" />
+        <Text id="assignTimeText" />
+
+        <Label text="Slot No" />
+        <Text id="slotNoText" />
+    </VBox>
+    <beginButton>
+        <Button text="Un-assign" type="Reject" press="onQRUnAssign" />
+    </beginButton>
+    <endButton>
+        <Button text="Close" press="onCloseDialog" />
+    </endButton>
+</Dialog>
+
+
                 </pages>
             </NavContainer>
         </tnt:mainContents>
@@ -1211,9 +1515,15 @@
         visible="false"
     >
         <customHeader>
-            <Bar id="_IDNOtificationHeaderBar" class="notificationHeaderBar">
+            <Bar
+                id="_IDNOtificationHeaderBar"
+                class="notificationHeaderBar"
+            >
                 <contentLeft>
-                    <Text id="_IDNotificationText" text="Notification" />
+                    <Text
+                        id="_IDNotificationText"
+                        text="Notification"
+                    />
                 </contentLeft>
                 <!-- <contentRight>
                     <Button
@@ -1250,8 +1560,8 @@
 
                 <NotificationListItem
                     id="_IDNotificatioinContent"
-                    title="Vender Name :- "
-                    description="Hai ! Book the Slot For this date and time "
+                    title="Vender Name :- {NVenderName}"
+                    description="Hai Parking-lot Management service! Please Book the Slot For Vehicle no: {NVehicleno}  on  {NRservationTime}."
                     highlightText=""
                     showCloseButton="true"
                     datetime=""
@@ -1266,3 +1576,7 @@
         </NotificationList>
     </Popover>
 </mvc:View>
+
+
+
+

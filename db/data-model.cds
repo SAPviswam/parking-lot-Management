@@ -41,10 +41,10 @@ entity Reservation : cuid {
   RVenderMobileNo : String;
   RDriverName     : String;
   RDriverMobileNo : String;
-  ReservationTime : String;
+  ReservationTime : Date;
   RVehicleno      : String;
   RVehicleType    : String;
-
+  Rslotno         : Association to Parkingslots;
 }
 
 entity Reservered : cuid {
@@ -52,7 +52,7 @@ entity Reservered : cuid {
   R1VenderMobileNo : String;
   R1DriverName     : String;
   R1DriverMobileNo : String;
-  ReservationTime1 : String;
+  ReservationTime1 : Date;
   R1Vehicleno      : String;
   R1VehicleType    : String;
   R1slotno         : Association to Parkingslots;
@@ -64,7 +64,7 @@ entity Notification : cuid {
   NVenderMobileNo : String;
   NDriverName     : String;
   NDriverMobileNo : String;
-  NRservationTime : String;
+  NRservationTime : Date;
   NVehicleno      : String;
   NVehicleType    : String;
 }
