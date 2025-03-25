@@ -51,7 +51,7 @@
 
                 <NotificationListItem
                     title="Vender Name :- "
-                    description="Hai ! Book the Slot For this date and time "
+                    description="Hi! Book the Slot For this date and time "
                     highlightText=""
                     showCloseButton="true"
                     datetime=""

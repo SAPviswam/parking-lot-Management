@@ -344,7 +344,7 @@
                                 <Column id="assignedSlotscolumn4">
                                     <Text
                                         id="assignedSlotscolumn4Text"
-                                        text="Type (Inward / Outward)"
+                                        text="Type (Inbound / Outbound)"
                                     />
                                 </Column>
                                 <Column id="assignedSlotscolumn5">
@@ -781,7 +781,7 @@
                                             dataLabel: {visible: true},
                                             colorPalette: ['#57DA2A', '#EA2365', '#090979']
                                         },
-                                        title: {text:'Parking Lot Availability'}
+                                        title: {text:'Slot Details'}
                                     }"
                                                 selectData="OnClickHandler"
                                                 renderComplete="handleRenderComplete"
@@ -1048,7 +1048,7 @@
                                 <Column id="reservationscolumn6">
                                     <Text
                                         id="reservationscolumn6Text"
-                                        text="Type (Inward / Out-ward)"
+                                        text="Type (Inbound / Outbound)"
                                     />
                                 </Column>
                                 <Column id="reservationscolumn5">
@@ -1561,7 +1561,7 @@
                 <NotificationListItem
                     id="_IDNotificatioinContent"
                     title="Vender Name :- {NVenderName}"
-                    description="Hai Parking-lot Management service! Please Book the Slot For Vehicle no: {NVehicleno}  on  {NRservationTime}."
+                    description="Hi Parking-lot Management service! Please Book a Slot For Vehicle no: {NVehicleno}  on  {NRservationTime}."
                     highlightText=""
                     showCloseButton="true"
                     datetime=""

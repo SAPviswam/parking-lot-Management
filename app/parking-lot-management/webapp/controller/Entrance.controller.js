@@ -548,11 +548,11 @@ sap.ui.define([
                     // Send SMS to driver
                     var DriverPhoneno = "+91" + sPhoneNo;
                     const accountSid = 'AC5a7f5b49547b4f26bc2e12ed6ed1c1bb';
-                    const authToken = '7bdef40990b602b404438b9bbfac8a68';
+                    const authToken = 'fc47ee051c5466790ca761f8d3b0a31c';
                     
                     // Function to send SMS using Twilio
                     const toNumber = DriverPhoneno; // Replace with recipient's phone number
-                    const fromNumber = '+12053796189'; 
+                    const fromNumber = '+12315089152'; 
                     const messageBody = 'Hello ' + sDriverName + ', a slot is allocated to your vehicle number.\nVehicle no: ' + sVehicleNo + '\nSlot no: ' + sParkinglotNo + '\nHave a Great Day!!';
                     
                     // Twilio API endpoint for sending messages
